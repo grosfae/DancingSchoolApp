@@ -1,0 +1,40 @@
+﻿<Page x:Class="DancingSchoolApp.Pages.GroupList"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DancingSchoolApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800" Loaded="Page_Loaded"
+      Title="GroupList">
+
+    <Grid Background="White">
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Margin="10 0 0 0">
+                    <TextBlock Text="Фильтр по танцу" FontSize="15" HorizontalAlignment="Center"/>
+                    <ComboBox x:Name="CbDance" DisplayMemberPath="TypeDance" IsEditable="True" IsReadOnly="True" Text="Выберите танец" Width="140" Height="30" FontSize="15" SelectionChanged="CbDance_SelectionChanged"/>
+                </StackPanel>
+                <StackPanel Margin="10 0 0 0">
+                    <TextBlock Text="Фильтр по тренеру" FontSize="15" HorizontalAlignment="Center"/>
+                    <ComboBox x:Name="CbTrainer" DisplayMemberPath="FullName" IsEditable="True" IsReadOnly="True" Text="Выберите тренера" Width="160" Height="30" FontSize="15"  SelectionChanged="CbDance_SelectionChanged"/>
+                </StackPanel>
+                <Button x:Name="ResetBtn" Content="Сбросить фильтры" Height="30" Margin="10 0 0 0" VerticalAlignment="Bottom" Click="ResetBtn_Click"/>
+            </StackPanel>
+
+            <ListView x:Name="LvGroups" d:ItemsSource="{d:SampleData ItemCount=5}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="0 10 0 0">
+                            <TextBlock Text="{Binding ID,StringFormat='Код группы: {0}'}"/>
+                            <TextBlock Text="{Binding Dance.TypeDance,StringFormat='Танец: {0}'}"/>
+                            <TextBlock Text="{Binding Trainer.FullName,StringFormat='Тренер: {0}'}"/>
+                            <TextBlock Text="{Binding Count,StringFormat='Количество студентов: {0}'}"/>
+                            <Button x:Name="EditBtn" Content="Редактировать" Margin="0 10 0 0" Click="EditBtn_Click" Width="120" HorizontalAlignment="Left"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+    </Grid>
+</Page>
