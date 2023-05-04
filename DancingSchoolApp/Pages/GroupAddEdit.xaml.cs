@@ -21,6 +21,7 @@ namespace DancingSchoolApp.Pages
     /// </summary>
     public partial class GroupAddEdit : Page
     {
+        
         Group contextGroup;
         public GroupAddEdit(Group group)
         {
@@ -71,6 +72,13 @@ namespace DancingSchoolApp.Pages
         private void CancelBtn_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.GoBack();
+        }
+
+        private void DownloadBtn_Click(object sender, RoutedEventArgs e)
+        {
+            string fileName = $"{contextGroup.ID}.txt";
+            
+            
         }
     }
 }

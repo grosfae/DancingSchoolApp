@@ -30,6 +30,7 @@
             <Button x:Name="SaveBtn" Click="SaveBtn_Click" Content="Сохранить" Width="100"/>
             <Button x:Name="CancelBtn" Click="CancelBtn_Click" Content="Отмена" Width="100" Margin="20 0 0 0"/>
         </StackPanel>
+            <Button x:Name="DownloadBtn" Click="DownloadBtn_Click" Content="Скачать (не работает)" Width="130" Margin="0 10 0 0"/>
         </StackPanel>
     </Grid>
 </Page>
